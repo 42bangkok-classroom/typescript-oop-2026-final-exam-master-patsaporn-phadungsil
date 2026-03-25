@@ -21,5 +21,5 @@ export class ProductController {
       data: products,
       message: 'Fetched products successfully',
     };
-  }
-}
+    }
+    }
