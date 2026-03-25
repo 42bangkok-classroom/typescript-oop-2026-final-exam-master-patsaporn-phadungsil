@@ -7,6 +7,6 @@ export interface Purchase{
     id: number;
     customerName: string;
     purchaseDate: string;
-    item: PurchaseItem;
+    item: PurchaseItem[];
     totalPrice: number;
 }
