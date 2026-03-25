@@ -8,7 +8,7 @@ export class PurchaseService {
 
   constructor() {
     const data = readFileSync('data/purchases.json', 'utf-8');
-    this.purchases = JSON.parse(data);
+    this.purchases = JSON.parse(data) as Purchase[];
   }
 
   findAll(): Purchase[] {
