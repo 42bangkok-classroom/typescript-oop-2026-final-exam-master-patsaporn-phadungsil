@@ -1,5 +1,5 @@
 import { Product } from "./product.interface";
-import { readFileSync , writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { Injectable } from "@nestjs/common";
 import { join } from "path";
 

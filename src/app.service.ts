@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello NestJS';
+  getHello(){
+    return {
+      sevice: 'purchase-api',
+      version: '1.0.0'
+    };
   }
 }
