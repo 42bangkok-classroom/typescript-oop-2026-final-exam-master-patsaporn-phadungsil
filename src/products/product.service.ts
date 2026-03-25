@@ -1,11 +1,14 @@
 import { Product } from "./product.interface";
 import { readFileSync , writeFileSync } from "fs";
+import { Injectable } from "@nestjs/common";
+import { join } from "path";
 
-
+@Injectable()
 export class ProductService {
-    findAll(){
-        const file = readFileSync('./data/product.json' , 'utf-8');
-        const products: Product[] = JSON.parse(file);
-        return products;
+    private readonly filePath = join(process.cwd(), 'data', 'product.json');
+    findAll(): Product[]{
+        const data = readFileSync(this.filePath , 'utf-8');
+
+        return JSON.parse(data);
     }
 }
