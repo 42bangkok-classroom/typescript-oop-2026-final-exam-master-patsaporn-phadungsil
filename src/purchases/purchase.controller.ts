@@ -1,5 +1,5 @@
 
-import { Controller, Get ,Query} from '@nestjs/common';
+import { Controller, Get ,Query,Param} from '@nestjs/common';
 import { PurchaseService } from './purchase.service';
 import { Purchase } from './purchase.interface';
 
@@ -35,4 +35,22 @@ export class PurchaseController {
         : 'Fetched purchases successfully',
     };
   }
+  @Get(':id')
+  findOne(@Param('id') id: string): ApiResponse<Purchase | null> {
+    const purchase = this.purchaseService.findOne(Number(id));
+
+    if (!purchase) {
+      return {
+        success: false,
+        data: null,
+        message: `Purchase with id ${id} not found`,
+      };
+    }
+
+    return {
+      success: true,
+      data: purchase,
+      message: 'Fetched purchase successfully',
+    };
+}
 }
